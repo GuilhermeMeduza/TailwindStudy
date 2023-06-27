@@ -1,12 +1,12 @@
 type SpanProps = {
   children?: React.ReactNode;
-  color?: string;
+  className?: string;
 };
 
-const Span = ({ children, color }: SpanProps) => {
+const Span = ({ children, className }: SpanProps) => {
   return (
     <span
-      className={`text-gray-800 text-3xl text-black font-bold md:text-${color}-700`}
+      className={`text-gray-800 text-3xl text-black font-bold ${className}`}
     >
       {children}
     </span>
