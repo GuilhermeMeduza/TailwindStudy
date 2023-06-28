@@ -1,22 +1,17 @@
-"use client";
-
-import { useState } from "react";
-
 type InputProps = {
   className?: string;
+  value?: any;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  id?: string;
 };
 
-const Input = ({ className }: InputProps) => {
-  const [value, setValue] = useState(null);
-
-  const handleInputChange = (value: any) => {
-    setValue(value);
-  };
+const Input = ({ className, onChange, value, id }: InputProps) => {
   return (
     <input
-      onChange={handleInputChange}
-      value={value!}
-      className={`w-full p-2 bg-white border border-none shadow-inner rounded-md focus:outline-none focus:none ${className}`}
+      id={id}
+      onChange={onChange}
+      value={value}
+      className={`w-full p-2 bg-white border-none shadow-inner rounded-md focus:outline-none focus:none text-black ${className}`}
     />
   );
 };

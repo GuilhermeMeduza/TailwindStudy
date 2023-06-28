@@ -1,3 +1,5 @@
+"use client";
+
 import Card from "@/components/Card";
 import ImageB from "@/components/ImageB";
 import Span from "@/components/Span";
@@ -5,12 +7,14 @@ import Title from "@/components/Title";
 
 import Pokemon from "@/assets/pokemon.png";
 import Input from "@/components/Input";
+import { useState } from "react";
 
 export default function Home() {
+  const [name, setName] = useState("");
   return (
     <main className="flex min-h-screen flex-col items-center justify-start gap-y-8 p-24">
       <Card className="flex flex-col items-center">
-        <Input />
+        <Input onChange={(e) => setName(e.target.value)} value={name} />
       </Card>
       <Card className="flex flex-col items-center">
         <Title>
