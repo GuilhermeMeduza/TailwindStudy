@@ -7,7 +7,8 @@ import Pokemon from "@/assets/pokemon.png";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-start gap-y-8 p-24">
+      <Card className="flex flex-col items-center"></Card>
       <Card className="flex flex-col items-center">
         <Title>
           Biggest <Span className="md:text-yellow-500">Card</Span>
