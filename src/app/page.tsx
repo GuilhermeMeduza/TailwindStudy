@@ -9,10 +9,13 @@ import Pokemon from "@/assets/pokemon.png";
 import Input from "@/components/Input";
 import { useState } from "react";
 import Label from "@/components/Label";
+import PokemonImage from "@/components/PokemonImage";
 
 export default function Home() {
   const [name, setName] = useState("");
-  const [spriteSrc, setSpriteSrc] = useState(null);
+  const [data, setData] = useState(null);
+
+  const [s, setS] = useState(null);
 
   async function fetchPokemonData(name: string) {
     try {
@@ -23,8 +26,8 @@ export default function Home() {
       const data = await response.json();
       console.log(data);
       console.log(data.sprites.front_default);
-
-      setSpriteSrc(data.sprites.front_default);
+      setS(data.sprites.front_default);
+      setData(data);
       return data;
     } catch (error) {
       console.error(error);
@@ -46,8 +49,8 @@ export default function Home() {
         <Title>
           Biggest <Span className="md:text-yellow-500">Card</Span>
         </Title>
-        <ImageB
-          src={spriteSrc ? `${spriteSrc}` : Pokemon}
+        <PokemonImage
+          data={s ? s : Pokemon}
           width={200}
           height={200}
           alt="Imagem de carta de Pokémon TCG"
