@@ -10,6 +10,21 @@ import Input from "@/components/Input";
 import { useState } from "react";
 import Label from "@/components/Label";
 
+async function fetchPokemonData(name: string) {
+  try {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+    if (!response.ok) {
+      throw new Error("Erro ao chamar a API");
+    }
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error(error);
+    // Aqui você pode lidar com o erro de forma apropriada (ex: exibir uma mensagem de erro)
+  }
+}
+
 export default function Home() {
   const [name, setName] = useState("");
   return (
@@ -18,6 +33,7 @@ export default function Home() {
         <Label htmlFor="name">Nome do Pokémon</Label>
         <Input
           id="name"
+          onBlur={() => fetchPokemonData(name.toLowerCase())}
           onChange={(e) => setName(e.target.value)}
           value={name}
         />
