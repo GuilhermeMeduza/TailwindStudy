@@ -47,7 +47,7 @@ export default function Home() {
       </Card>
       <Card className="flex flex-col items-center">
         <Title>
-          Biggest <Span className="md:text-yellow-500">Card</Span>
+          Test<Span className="md:text-yellow-500">Card</Span>
         </Title>
         <PokemonImage
           data={s ? s : Pokemon}
