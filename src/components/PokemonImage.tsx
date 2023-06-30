@@ -1,7 +1,7 @@
 import ImageB from "@/components/ImageB";
 
 type PokemonImageProps = {
-  data?: any;
+  imageUrl: string;
   alt?: string;
   width?: number;
   height?: number;
@@ -9,13 +9,12 @@ type PokemonImageProps = {
 };
 
 const PokemonImage = ({
-  data,
-  width,
-  height,
-  alt,
+  imageUrl,
+  width = 150,
+  height = 150,
+  alt = "pokemon image",
   className,
 }: PokemonImageProps) => {
-  const imageUrl = data.sprites.front_default;
 
   return (
     <ImageB
