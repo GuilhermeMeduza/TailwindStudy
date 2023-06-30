@@ -26,14 +26,12 @@ export default function Home() {
       if (!response.ok) {
         setPokemonData(null)
         //throw new Error("Erro ao chamar a API");
-        
+        return;
       }
       const data: Pokemon = await response.json();
-     
-      console.log(JSON.stringify(data));
+      setPokemonData(data)
+      console.log("image",data.sprites.front_default)
 
-
-      return data;
     } catch (error) {
       console.error(error);
     }
